@@ -1,0 +1,101 @@
+@custom-variant dark (&:where(.dark, .dark *));
+
+@import "tailwindcss";
+
+/* ---------- Base ---------- */
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  margin:0;
+  background:#f8fafc;
+  color:#0f172a;
+  font-family:Inter,system-ui,sans-serif;
+  transition:background .3s,color .3s;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+/* ---------- Layout ---------- */
+
+.container{
+  width:100%;
+  max-width:1200px;
+  margin:auto;
+  padding:0 32px;
+}
+
+.section{
+  padding:88px 0;
+}
+
+/* ---------- Components ---------- */
+
+.btn-primary{
+  background:#2563eb;
+  color:white;
+  padding:14px 28px;
+  border-radius:14px;
+  font-weight:600;
+  transition:.25s;
+}
+
+.btn-primary:hover{
+  background:#1d4ed8;
+  transform:translateY(-2px);
+}
+
+.card{
+  background:white;
+  border-radius:24px;
+  border:1px solid #e5e7eb;
+  padding:28px;
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 45px rgba(0,0,0,.08);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width:768px){
+
+  .container{
+    padding:0 20px;
+  }
+
+  .section{
+    padding:64px 0;
+  }
+
+}
+
+/* ---------- Dark Theme ---------- */
+
+.dark body{
+  background:#0f172a;
+  color:#f8fafc;
+}
+
+.dark .card{
+  background:#1e293b;
+  border-color:#334155;
+}
+
+.dark input{
+  background:#1e293b;
+  color:white;
+  border-color:#475569;
+}
+
+.dark textarea{
+  background:#1e293b;
+  color:white;
+  border-color:#475569;
+}
