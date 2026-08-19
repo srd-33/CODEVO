@@ -8,8 +8,11 @@ import Login from "./pages/Login";
 import Support from "./pages/Support";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import Internships from "./pages/Internships";
+import DomainPage from "./pages/DomainPage";
+import StudentDashboard from "./pages/StudentDashboard";
+import AdminSettings from "./pages/AdminSettings";
 
-import Internship from "./pages/Internship";
 import { ThemeProvider } from "./context/ThemeContext";
 
 
@@ -25,13 +28,16 @@ export default function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/support" element={<Support />} />
-         <Route path="/internship" element={<Internship />} />
-  <Route
-    path="/internship/web-development"
-    element={<Internship />}
-  />   
+        <Route path="/internships" element={<Internships />} />
+<Route path="/internships/:slug" element={<DomainPage />} />
+<Route
+  path="/admin/settings"
+  element={<AdminSettings />}
+/>
+ 
   <Route path="/admin/login" element={<AdminLogin />} />
 <Route path="/admin/dashboard" element={<AdminDashboard />} />
+<Route path="/student/dashboard" element={<StudentDashboard />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

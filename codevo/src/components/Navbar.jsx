@@ -17,12 +17,14 @@ export default function Navbar() {
         {/* Menu */}
         <div className="hidden md:flex items-center gap-8 font-medium">
           <Link to="/">Home</Link>
-          <Link to="/internship">Internships</Link>
+          <Link to="/internships">Internships</Link>
           <Link to="/support">Support</Link>
         </div>
 
         {/* Right Side */}
         <div className="flex items-center gap-3">
+
+       
 
           <button
             onClick={toggleTheme}
@@ -36,6 +38,12 @@ export default function Navbar() {
               Register
             </button>
           </Link>
+
+           <Link to="/login">
+  <button className="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-4 py-2 rounded-lg transition">
+    Student Login
+  </button>
+</Link>
 
         </div>
       </div>

@@ -10,31 +10,37 @@ import { Link } from "react-router-dom";
 
 const domains = [
   {
+    slug: "web-development",
     icon: <LaptopMinimal size={34} />,
     title: "Web Development",
     tech: "React • Node • MongoDB",
   },
   {
+    slug: "ai-ml",
     icon: <BrainCircuit size={34} />,
     title: "Artificial Intelligence",
     tech: "Python • ML • OpenCV",
   },
   {
+    slug: "data-science",
     icon: <Database size={34} />,
     title: "Data Science",
     tech: "Pandas • SQL • Power BI",
   },
   {
+    slug: "java-full-stack",
     icon: <Code2 size={34} />,
     title: "Java Full Stack",
     tech: "Spring • Java • MySQL",
   },
   {
+    slug: "cyber-security",
     icon: <ShieldCheck size={34} />,
     title: "Cyber Security",
     tech: "Ethical Hacking • Linux",
   },
   {
+    slug: "python",
     icon: <Cpu size={34} />,
     title: "Python Development",
     tech: "Automation • APIs",
@@ -81,11 +87,11 @@ export default function Domains() {
                 {item.tech}
               </p>
 
-              <Link to="/internship/web-development">
-                <button className="text-blue-600 dark:text-blue-400 font-semibold hover:translate-x-1 transition">
-                  View Program →
-                </button>
-              </Link>
+              <Link to={`/internships/${item.slug}`}>
+  <button className="text-blue-600 dark:text-blue-400 font-semibold hover:translate-x-1 transition">
+    View Program →
+  </button>
+</Link>
             </div>
           ))}
         </div>
