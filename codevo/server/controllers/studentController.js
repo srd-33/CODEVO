@@ -8,6 +8,8 @@ export const googleLogin = async (req, res) => {
   try {
     const { token, phone, college, usn, semester, domain } = req.body;
 
+    console.log("Backend Client ID:", process.env.GOOGLE_CLIENT_ID);
+
     const ticket = await client.verifyIdToken({
       idToken: token,
       audience: process.env.GOOGLE_CLIENT_ID,
@@ -46,7 +48,7 @@ if (student && !student.googleId) {
       student,
     });
   } catch (error) {
-    console.error(error);
+    console.error("Google Error:", error);
     res.status(401).json({
       message: "Google authentication failed",
     });
