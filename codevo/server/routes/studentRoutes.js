@@ -6,7 +6,7 @@ import {
    updateStudentStatus,
    loginStudent,
      getStudentById,googleLogin,
-       googleStudentLogin,
+       googleStudentLogin,  loginStudent,
 } from "../controllers/studentController.js";
 
 const router = express.Router();
