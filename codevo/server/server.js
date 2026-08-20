@@ -6,6 +6,7 @@ import studentRoutes from "./routes/studentRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
 import settingsRoutes from "./routes/settingsRoutes.js";
 import documentRoutes from "./routes/documentRoutes.js";
+import generateDocumentRoutes from "./routes/generateDocumentRoutes.js";
 
 dotenv.config();
 connectDB();
@@ -28,6 +29,7 @@ app.use("/api/students", studentRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/settings", settingsRoutes);
 app.use("/api/documents", documentRoutes);
+app.use("/api/generate", generateDocumentRoutes);
 
 app.get("/", (req, res) => {
   res.json({ message: "CODEVO Backend Running 🚀" });

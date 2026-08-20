@@ -9,27 +9,18 @@ const documentSchema = new mongoose.Schema(
 
     type: {
       type: String,
-      enum: ["offer", "assignment", "certificate"],
+      enum: ["offer", "certificate"],
       required: true,
     },
 
-    fileUrl: {
-      type: String,
-      required: true,
-    },
-
-    publicId: {
-      type: String,
-      required: true,
-    },
+    fileUrl: String,
+    publicId: String,
+    originalName: String,
 
     published: {
       type: Boolean,
       default: true,
     },
-    originalName: {
-  type: String,
-},
   },
   { timestamps: true }
 );

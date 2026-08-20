@@ -4,11 +4,12 @@ import cloudinary from "../config/cloudinary.js";
 
 const storage = new CloudinaryStorage({
   cloudinary,
-  params: {
+  params: async (req, file) => ({
     folder: "codevo-documents",
-    resource_type: "raw",
-    allowed_formats: ["pdf", "docx"],
-  },
+    resource_type: "auto",
+    // format: file.originalname.split(".").pop(), // pdf or docx
+    public_id: `${Date.now()}-${file.originalname.replace(/\.[^/.]+$/, "")}`,
+  }),
 });
 
 const upload = multer({ storage });

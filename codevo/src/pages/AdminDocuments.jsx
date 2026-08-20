@@ -79,9 +79,8 @@ export default function AdminDocuments() {
             onChange={(e) => setType(e.target.value)}
             className="w-full bg-slate-800 rounded-xl p-4 outline-none"
           >
-            <option value="offer">Offer Letter</option>
-            <option value="assignment">Assignment</option>
-            <option value="certificate">Certificate</option>
+           <option value="offer">Offer Letter</option>
+<option value="certificate">Certificate</option>
           </select>
 
           <input

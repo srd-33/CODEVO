@@ -12,6 +12,8 @@ import {
   CheckCircle,
   Clock,
   LogOut,
+  FileText,
+  Award,
 } from "lucide-react";
 
 const API = import.meta.env.VITE_API_URL;
@@ -33,19 +35,20 @@ export default function StudentDashboard() {
     const loadData = async () => {
       try {
         const [studentRes, settingsRes] = await Promise.all([
-         axios.get(`${API}/api/students/${id}`),
-        axios.get(`${API}/api/settings`)
+          axios.get(`${API}/api/students/${id}`),
+          axios.get(`${API}/api/settings`),
         ]);
 
         setStudent(studentRes.data);
         setSettings(settingsRes.data);
-      } catch {
+      } catch (err) {
+        console.log(err);
         navigate("/login");
       }
     };
 
     loadData();
-  }, []);
+  }, [navigate]);
 
   const logout = () => {
     localStorage.removeItem("studentId");
@@ -62,16 +65,15 @@ export default function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="container py-10">
+      <div className="container mx-auto px-4 py-10">
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-10">
           <div>
             <h1 className="text-4xl font-bold">
               Welcome, {student.name.split(" ")[0]} 👋
             </h1>
-            <p className="text-slate-400 mt-2">
-              CODEVO Student Portal
-            </p>
+            <p className="text-slate-400 mt-2">CODEVO Student Portal</p>
           </div>
 
           <button
@@ -83,45 +85,51 @@ export default function StudentDashboard() {
           </button>
         </div>
 
-        {/* Status Banner */}
+        {/* Status */}
         <div
           className={`rounded-3xl p-6 mb-8 border ${
-            student.status === "Approved"
-              ? "bg-green-900/20 border-green-600"
-              : "bg-yellow-900/20 border-yellow-600"
+            student.status === "Pending"
+              ? "bg-yellow-900/20 border-yellow-600"
+              : "bg-green-900/20 border-green-600"
           }`}
         >
           <div className="flex items-center gap-3">
-            {student.status === "Approved" ? (
-              <CheckCircle className="text-green-400" size={30} />
-            ) : (
+            {student.status === "Pending" ? (
               <Clock className="text-yellow-400" size={30} />
+            ) : (
+              <CheckCircle className="text-green-400" size={30} />
             )}
 
             <div>
               <h2 className="text-2xl font-bold">
-                {student.status === "Approved"
+                {student.status === "Pending"
+                  ? "Application Pending"
+                  : student.status === "Approved"
                   ? "Internship Approved"
-                  : "Application Pending"}
+                  : "Internship Completed"}
               </h2>
 
               <p className="text-slate-300">
-                {student.status === "Approved"
-                  ? "You're officially enrolled in the internship."
-                  : "Our team is reviewing your application."}
+                {student.status === "Pending"
+                  ? "Our team is reviewing your application."
+                  : "Your internship portal is unlocked."}
               </p>
             </div>
           </div>
         </div>
 
-        {/* Student Info */}
+        {/* Student Information */}
         <h2 className="text-2xl font-bold mb-5">Student Information</h2>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
           <Card icon={<User />} title="Name" value={student.name} />
           <Card icon={<Mail />} title="Email" value={student.email} />
           <Card icon={<Phone />} title="Phone" value={student.phone} />
-          <Card icon={<GraduationCap />} title="College" value={student.college} />
+          <Card
+            icon={<GraduationCap />}
+            title="College"
+            value={student.college}
+          />
           <Card
             icon={<BookOpen />}
             title="Semester"
@@ -130,12 +138,14 @@ export default function StudentDashboard() {
           <Card icon={<User />} title="USN" value={student.usn} />
         </div>
 
-        {/* Approved Section */}
-        {student.status === "Approved" && (
+        {/* Approved / Completed */}
+        {(student.status === "Approved" ||
+          student.status === "Completed") && (
           <>
             <h2 className="text-2xl font-bold mb-5">Internship Access</h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6 mb-10">
+
               {/* Webinar */}
               <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6">
                 <CalendarDays className="text-blue-400 mb-4" size={32} />
@@ -149,10 +159,10 @@ export default function StudentDashboard() {
                 </p>
 
                 <p className="mt-4 font-semibold text-lg">
-  {settings.webinarDate
-    ? `${settings.webinarDate} • ${settings.webinarTime}`
-    : "Not announced"}
-</p>
+                  {settings.webinarDate
+                    ? `${settings.webinarDate} • ${settings.webinarTime}`
+                    : "Not announced"}
+                </p>
 
                 {settings.meetLink && (
                   <a
@@ -185,19 +195,79 @@ export default function StudentDashboard() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <button className="bg-green-600 hover:bg-green-700 px-5 py-3 rounded-xl mt-5 w-full">
+                    <button className="bg-green-600 hover:bg-green-700 w-full py-3 rounded-xl mt-5">
                       Join WhatsApp Group
                     </button>
                   </a>
                 ) : (
                   <button
                     disabled
-                    className="bg-slate-700 px-5 py-3 rounded-xl mt-5 w-full cursor-not-allowed"
+                    className="bg-slate-700 w-full py-3 rounded-xl mt-5"
                   >
                     Link not available
                   </button>
                 )}
               </div>
+            </div>
+
+            {/* Documents */}
+            <h2 className="text-2xl font-bold mb-5">
+              Internship Documents
+            </h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+
+              {/* Offer Letter */}
+              <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6">
+                <FileText className="text-blue-400 mb-4" size={32} />
+
+                <h3 className="text-xl font-bold">
+                  Offer Letter
+                </h3>
+
+                <p className="text-slate-400 mt-2">
+                  Personalized DOCX
+                </p>
+
+                <button
+                  onClick={() =>
+                    window.open(
+                      `${API}/api/generate/offer/${student._id}`,
+                      "_blank"
+                    )
+                  }
+                  className="bg-blue-600 hover:bg-blue-700 w-full py-3 rounded-xl mt-5"
+                >
+                  Download Offer Letter
+                </button>
+              </div>
+
+              {/* Certificate */}
+              {student.status === "Completed" && (
+                <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6">
+                  <Award className="text-green-400 mb-4" size={32} />
+
+                  <h3 className="text-xl font-bold">
+                    Completion Certificate
+                  </h3>
+
+                  <p className="text-slate-400 mt-2">
+                    Personalized DOCX
+                  </p>
+
+                  <button
+                    onClick={() =>
+                      window.open(
+                        `${API}/api/generate/certificate/${student._id}`,
+                        "_blank"
+                      )
+                    }
+                    className="bg-green-600 hover:bg-green-700 w-full py-3 rounded-xl mt-5"
+                  >
+                    Download Certificate
+                  </button>
+                </div>
+              )}
             </div>
           </>
         )}
@@ -212,11 +282,11 @@ export default function StudentDashboard() {
             </h2>
 
             <p className="text-slate-400 mt-3 max-w-xl mx-auto">
-              Once approved, this dashboard will automatically unlock
-              webinars, Google Meet links and the WhatsApp community.
+              Once approved, webinars, WhatsApp and your Offer Letter will appear automatically.
             </p>
           </div>
         )}
+
       </div>
     </div>
   );
