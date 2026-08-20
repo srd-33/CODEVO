@@ -10,6 +10,8 @@ import axios from "axios";
 import { GoogleLogin } from "@react-oauth/google";
 import { useNavigate } from "react-router-dom";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function Register() {
   const navigate = useNavigate();
 
@@ -40,17 +42,19 @@ export default function Register() {
     }
 
     try {
-      const res = await axios.post(
-        "http://localhost:5000/api/students/google",
-        {
-          token: credentialResponse.credential,
-          phone: form.phone,
-          college: form.college,
-          usn: form.usn,
-          semester: form.semester,
-          domain: form.domain,
-        }
-      );
+      const API = import.meta.env.VITE_API_URL;
+
+const res = await axios.post(
+  `${API}/api/students/google`,
+  {
+    token: credentialResponse.credential,
+    phone: form.phone,
+    college: form.college,
+    usn: form.usn,
+    semester: form.semester,
+    domain: form.domain,
+  }
+);
 
       localStorage.setItem("studentId", res.data.student._id);
       navigate("/student/dashboard");

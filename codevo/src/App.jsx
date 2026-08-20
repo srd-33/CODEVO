@@ -12,6 +12,7 @@ import Internships from "./pages/Internships";
 import DomainPage from "./pages/DomainPage";
 import StudentDashboard from "./pages/StudentDashboard";
 import AdminSettings from "./pages/AdminSettings";
+import AdminDocuments from "./pages/AdminDocuments";
 
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -38,6 +39,7 @@ export default function App() {
   <Route path="/admin/login" element={<AdminLogin />} />
 <Route path="/admin/dashboard" element={<AdminDashboard />} />
 <Route path="/student/dashboard" element={<StudentDashboard />} />
+<Route path="/admin/documents" element={<AdminDocuments />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

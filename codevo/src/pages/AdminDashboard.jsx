@@ -79,33 +79,38 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       <div className="container py-10">
+{/* Header */}
+<div className="flex justify-between items-center mb-8">
+  <div>
+    <h1 className="text-4xl font-bold">
+      Admin Dashboard
+    </h1>
+    <p className="text-slate-400 mt-1">
+      CODEVO Student Management
+    </p>
+  </div>
 
-        {/* Header */}
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-4xl font-bold">
-              Admin Dashboard
-            </h1>
-            <p className="text-slate-400 mt-1">
-              CODEVO Student Management
-            </p>
-          </div>
+  <div className="flex gap-3">
+    <Link to="/admin/documents">
+      <button className="bg-purple-600 hover:bg-purple-700 px-5 py-2 rounded-lg">
+        Documents
+      </button>
+    </Link>
 
-          <div className="flex gap-3">
-            <Link to="/admin/settings">
-              <button className="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg">
-                Settings
-              </button>
-            </Link>
+    <Link to="/admin/settings">
+      <button className="bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-lg">
+        Settings
+      </button>
+    </Link>
 
-            <button
-              onClick={handleLogout}
-              className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg"
-            >
-              Logout
-            </button>
-          </div>
-        </div>
+    <button
+      onClick={handleLogout}
+      className="bg-red-600 hover:bg-red-700 px-5 py-2 rounded-lg"
+    >
+      Logout
+    </button>
+  </div>
+</div>
 
         {/* Stats */}
         <div className="flex flex-col md:flex-row justify-between md:items-center gap-4 mb-8">

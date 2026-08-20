@@ -4,14 +4,17 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function Login() {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
 
+
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/students/google/login",
+         `${API}/api/students/google/login`,
         {
           token: credentialResponse.credential,
         }
