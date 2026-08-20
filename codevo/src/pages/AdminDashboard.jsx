@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Search, Users, Trash2, Download } from "lucide-react";
 import { CSVLink } from "react-csv";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function AdminDashboard() {
   const [students, setStudents] = useState([]);
   const [search, setSearch] = useState("");
@@ -23,7 +25,7 @@ export default function AdminDashboard() {
 
   const fetchStudents = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/students");
+const res = await axios.get(`${API}/api/students`);
       setStudents(res.data);
     } catch (err) {
       console.log(err);
@@ -44,7 +46,7 @@ export default function AdminDashboard() {
 
     try {
       await axios.delete(
-        `http://localhost:5000/api/students/${id}`
+        `${API}/api/students/${id}`
       );
 
       fetchStudents();
@@ -56,7 +58,7 @@ export default function AdminDashboard() {
   const handleStatusChange = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/students/${id}/status`,
+        `${API}/api/students/${id}/status`,
         { status }
       );
 

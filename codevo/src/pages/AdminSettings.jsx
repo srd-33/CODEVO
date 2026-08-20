@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeft, Save } from "lucide-react";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function AdminSettings() {
   const navigate = useNavigate();
 
@@ -18,7 +20,7 @@ export default function AdminSettings() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/settings")
+      .get("${API}/api/settings")
       .then((res) => setSettings(res.data));
   }, []);
 
@@ -32,7 +34,7 @@ export default function AdminSettings() {
   const handleSave = async () => {
     try {
       await axios.put(
-        "http://localhost:5000/api/settings",
+        "${API}/api/settings",
         settings
       );
 
