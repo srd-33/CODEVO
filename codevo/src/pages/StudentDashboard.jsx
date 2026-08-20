@@ -14,6 +14,8 @@ import {
   LogOut,
 } from "lucide-react";
 
+const API = import.meta.env.VITE_API_URL;
+
 export default function StudentDashboard() {
   const [student, setStudent] = useState(null);
   const [settings, setSettings] = useState(null);
@@ -31,8 +33,8 @@ export default function StudentDashboard() {
     const loadData = async () => {
       try {
         const [studentRes, settingsRes] = await Promise.all([
-          axios.get(`http://localhost:5000/api/students/${id}`),
-          axios.get("http://localhost:5000/api/settings"),
+         axios.get(`${API}/api/students/${id}`),
+        axios.get(`${API}/api/settings`)
         ]);
 
         setStudent(studentRes.data);
