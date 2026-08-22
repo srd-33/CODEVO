@@ -36,9 +36,12 @@ export default function ContactCTA() {
             <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center border border-white/10">
               <Mail className="mx-auto mb-3" size={34} />
               <h3 className="font-semibold">Email</h3>
-              <p className="text-blue-100 text-sm mt-2">
-                support@codevo.in
-              </p>
+             <a
+  href="mailto:codevo.internships@gmail.com"
+  className=" hover:underline"
+>
+  codevo.internships@gmail.com
+</a>
             </div>
 
             <div className="bg-white/10 backdrop-blur rounded-2xl p-6 text-center border border-white/10">

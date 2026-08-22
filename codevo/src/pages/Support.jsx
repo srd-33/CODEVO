@@ -60,7 +60,12 @@ export default function Support() {
                 <Mail className="text-blue-600" />
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Email</h3>
-                  <p className="text-gray-500 dark:text-gray-400">support@codevo.in</p>
+                 <a
+  href="mailto:codevo.internships@gmail.com"
+  className="text-blue-600 dark:text-blue-400 hover:underline"
+>
+  codevo.internships@gmail.com
+</a>
                 </div>
               </div>
 
