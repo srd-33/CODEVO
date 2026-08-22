@@ -65,7 +65,7 @@ export default function StudentDashboard() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="container mx-auto px-4 py-10">
+      <div className="app-container mx-auto px-4 py-10">
 
         {/* Header */}
         <div className="flex flex-col md:flex-row md:justify-between md:items-center gap-4 mb-10">

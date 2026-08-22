@@ -37,7 +37,7 @@ const steps = [
 export default function HowItWorks() {
   return (
     <section className="section bg-white dark:bg-slate-900 transition-colors duration-300">
-      <div className="container">
+      <div className="app-container">
         <div className="text-center mb-14">
           <p className="text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-widest">
             Process
@@ -48,7 +48,7 @@ export default function HowItWorks() {
           </h2>
 
           <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
-            A simple internship journey designed for VTU students.
+            A simple internship journey designed for students.
           </p>
         </div>
 

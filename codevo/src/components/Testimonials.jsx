@@ -2,20 +2,20 @@ import { Star } from "lucide-react";
 
 const reviews = [
   {
-    name: "Rahul S",
-    college: "RNSIT • CSE",
+    name: "Varun",
+    college: "RNSIT • AI&ML",
     review:
       "The webinars were practical and the project helped me build my resume. The certificate process was smooth.",
   },
   {
-    name: "Ayesha M",
-    college: "BMSCE • ISE",
+    name: "Sumantha ",
+    college: "RNSIT • AI&ML",
     review:
       "Everything happened through WhatsApp, so it was super easy to follow. The mentors were responsive.",
   },
   {
-    name: "Nikhil P",
-    college: "PESU • CSE",
+    name: "Sujal",
+    college: "RNSIT • AI&ML",
     review:
       "I completed the internship while staying at home. The assignments were actually useful for placements.",
   },
@@ -24,7 +24,7 @@ const reviews = [
 export default function Testimonials() {
   return (
     <section className="section bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
-      <div className="container">
+      <div className="app-container">
         <div className="text-center mb-12">
           <p className="text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-widest">
             Testimonials

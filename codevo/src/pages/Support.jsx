@@ -3,8 +3,8 @@ import { useState } from "react";
 
 const faqs = [
   {
-    q: "Is this internship valid for VTU students?",
-    a: "Yes. CODEVO conducts virtual internship programs for VTU Computer Science & IT students.",
+    q: "Is this internship valid for IT students?",
+    a: "Yes. CODEVO conducts virtual internship programs for Computer Science, Information Science, Artificial Intelligence & Machine Learning, Data Science,Cyber Security, and related engineering branches.",
   },
   {
     q: "How will I receive meeting links?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "How do I get my certificate?",
-    a: "After successful completion, you'll receive a Google Drive link to download your internship certificate.",
+    a: "After successful completion, you'll receive your internship certificate and can download it anytime directly from the CODEVO Student Portal..",
   },
 ];
 
@@ -27,7 +27,7 @@ export default function Support() {
     <div className="bg-slate-50 dark:bg-slate-950 min-h-screen transition-colors duration-300">
 
       <section className="section">
-        <div className="container">
+        <div className="app-container">
 
           <div className="text-center mb-14">
             <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
@@ -77,7 +77,7 @@ export default function Support() {
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white">Support Hours</h3>
                   <p className="text-gray-500 dark:text-gray-400">Monday – Saturday</p>
-                  <p className="text-gray-500 dark:text-gray-400">9:00 AM – 8:00 PM</p>
+                  <p className="text-gray-500 dark:text-gray-400">9:00 AM – 5:00 PM</p>
                 </div>
               </div>
 
@@ -88,7 +88,7 @@ export default function Support() {
       </section>
 
       <section className="pb-24">
-        <div className="container max-w-3xl">
+        <div className="app-container max-w-3xl">
           <div className="text-center mb-10">
             <h2 className="text-4xl font-bold text-gray-900 dark:text-white">
               Frequently Asked Questions

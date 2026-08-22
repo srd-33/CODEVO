@@ -13,6 +13,9 @@ import DomainPage from "./pages/DomainPage";
 import StudentDashboard from "./pages/StudentDashboard";
 import AdminSettings from "./pages/AdminSettings";
 import AdminDocuments from "./pages/AdminDocuments";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 import { ThemeProvider } from "./context/ThemeContext";
 
@@ -40,6 +43,10 @@ export default function App() {
 <Route path="/admin/dashboard" element={<AdminDashboard />} />
 <Route path="/student/dashboard" element={<StudentDashboard />} />
 <Route path="/admin/documents" element={<AdminDocuments />} />
+
+<Route path="/about" element={<About />} />
+<Route path="/privacy" element={<Privacy />} />
+<Route path="/terms" element={<Terms />} />
       </Routes>
     </BrowserRouter>
   </ThemeProvider>

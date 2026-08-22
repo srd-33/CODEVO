@@ -14,7 +14,7 @@ export default function Internship() {
 
       {/* Hero */}
       <section className="section">
-        <div className="container grid lg:grid-cols-2 gap-12 items-center">
+        <div className="app-container grid lg:grid-cols-2 gap-12 items-center">
 
           <div>
             <span className="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full font-semibold text-sm">
@@ -88,7 +88,7 @@ export default function Internship() {
 
       {/* Curriculum */}
       <section className="pb-24">
-        <div className="container">
+        <div className="app-container">
           <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
             Weekly Curriculum
           </h2>

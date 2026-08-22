@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <nav className="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b">
-      <div className="container flex items-center justify-between h-20">
+      <div className="app-container flex items-center justify-between h-20">
 
         {/* Logo */}
         <Link to="/" className="text-3xl font-black tracking-tight">

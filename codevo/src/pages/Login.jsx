@@ -10,11 +10,10 @@ export default function Login() {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
 
-
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const res = await axios.post(
-         `${API}/api/students/google/login`,
+        `${API}/api/students/google/login`,
         {
           token: credentialResponse.credential,
         }
@@ -28,17 +27,19 @@ export default function Login() {
   };
 
   return (
-    <div className="bg-slate-950 min-h-screen flex items-center justify-center text-white px-4">
-      <div className="bg-slate-900 border border-slate-700 rounded-3xl p-8 w-full max-w-md">
+    <div className="bg-slate-50 dark:bg-slate-950 min-h-screen flex items-center justify-center px-4 transition-colors duration-300">
+      <div className="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-700 rounded-3xl p-8 w-full max-w-md shadow-sm transition-colors">
 
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <GraduationCap size={32} />
+            <GraduationCap size={32} className="text-white" />
           </div>
 
-          <h1 className="text-3xl font-bold">Student Login</h1>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+            Student Login
+          </h1>
 
-          <p className="text-slate-400 mt-2">
+          <p className="text-gray-500 dark:text-slate-400 mt-2">
             Continue using your registered Google account
           </p>
         </div>
@@ -55,10 +56,10 @@ export default function Login() {
         </div>
 
         {message && (
-          <p className="text-center text-red-400 mt-5">{message}</p>
+          <p className="text-center text-red-500 mt-5">{message}</p>
         )}
 
-        <p className="text-xs text-slate-500 text-center mt-8">
+        <p className="text-xs text-gray-500 dark:text-slate-500 text-center mt-8">
           Use the same Google account you used during registration.
         </p>
 

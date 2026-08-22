@@ -80,7 +80,7 @@ const res = await axios.get(`${API}/api/students`);
 
   return (
     <div className="min-h-screen bg-slate-950 text-white">
-      <div className="container py-10">
+      <div className="app-container py-10">
 {/* Header */}
 <div className="flex justify-between items-center mb-8">
   <div>

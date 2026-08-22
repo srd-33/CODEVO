@@ -53,7 +53,7 @@ export default function Domains() {
       id="internships"
       className="section bg-slate-50 dark:bg-slate-950 transition-colors duration-300"
     >
-      <div className="container">
+      <div className="app-container">
         <div className="text-center mb-14">
           <p className="text-blue-600 dark:text-blue-400 font-semibold uppercase tracking-widest">
             Internship Programs
@@ -65,7 +65,7 @@ export default function Domains() {
 
           <p className="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">
             Industry-oriented virtual internships specially designed for
-            VTU Computer Science & Information Technology students.
+            Computer Science & Information Technology students.
           </p>
         </div>
 
