@@ -20,6 +20,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://codevo-fcpi.vercel.app",
+      "https://www.codevoedu.in"
     ],
     credentials: true,
   })
