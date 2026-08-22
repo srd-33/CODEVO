@@ -16,17 +16,20 @@ import AdminDocuments from "./pages/AdminDocuments";
 import About from "./pages/About";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
+import Analytics from "./components/Analytics";
 
 import { ThemeProvider } from "./context/ThemeContext";
 
 
 export default function App() {
   return (
+    
    <ThemeProvider>
     <BrowserRouter>
      <ScrollToTop />  
       <Navbar />
 
+      <Analytics />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
